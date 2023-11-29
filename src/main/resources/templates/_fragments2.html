@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <title th:replace="${title}">博客正文</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="/static/css/me.css" th:href="@{/static/css/me.css}">
+    <link rel="stylesheet" href="/static/css/typo.css" th:href="@{/static/css/typo.css}">
+    <link rel="stylesheet" href="/static/lib/tocbot/tocbot.css" th:href="@{/static/lib/tocbot/tocbot.css}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+
+   <style>
+       footer {
+           position: fixed!important;
+           bottom: 0!important; /* 4. 设置页脚position为absolute之后，再将其bottom值设为0，即可使其处于页面的底部 */
+           width: 100% !important;
+           background-color: #457B9D;
+       }
+       nav{
+           z-index: 100!important;
+           position: fixed!important;
+           top: 0!important; /* 4. 设置页脚position为absolute之后，再将其bottom值设为0，即可使其处于页面的底部 */
+           width: 100% !important;
+       }
+       html,body{
+           height: 100%!important;
+           width: 100% !important;
+           margin: 0!important;
+       }
+   </style>
+
+</head>
+<body>
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted  segment m-padded-tb-mini" style="height: 50px; background-color:teal">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu " >
+            <!--    博客名     -->
+            <a class="ui  header  nav-header-item m-head-clrt "><span style="font-size: 25px; margin-left: -2em!important;" >博客</span></a>
+            <a href="#" th:href="@{/index}" class="m-item item  m-model-hide m-clrt"  th:classappend="${n==1}?'active'" ><span style="font-size: 18px">首页</span></a>
+            <a href="#" th:href="@{/types/-1/1}" class=" m-item item  m-model-hide m-clrt" th:classappend="${n==2}?'active'"><span style="font-size: 18px">分类</span></a>
+            <a href="#" th:href="@{/tags/-1/1}" class=" m-item  item m-model-hide m-clrt"  th:classappend="${n==3}?'active'"><span style="font-size: 18px">标签</span></a>
+            <a href="#" th:href="@{/about}" class=" m-item  item m-model-hide m-clrt" th:classappend="${n==4}?'active'"><span style="font-size: 18px">关于我</span></a>
+            <a href="#" th:href="@{/admin}" class=" m-item  item m-model-hide m-clrt" th:classappend="${n==5}?'active'"><span style="font-size: 18px">登录</span></a>
+            <!--    搜索框        -->
+            <form name="search" method="post" th:action="@{/search}" target="_blank">
+                <div class="ui mini action icon input m-search" style="height: 30px;width:250px;margin-left: 24.2em">
+                    <input type="text" name="query" placeholder="搜索博客..." th:value="${query}">
+                    <button onclick="document.forms('search').submit()" class="ui icon button">
+                        <i class="search icon"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+<!--footer-->
+<footer th:fragment="footer" class="ui vertical  inverted  segment m-padded-tb-small footer" style="background-color: teal;height: 3em!important;">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing" style="color: black">Copyright ©2022 - 2022Blog</div>
+        <div>
+            <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+            <span style="color: black">冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+<!--js-->
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/static/lib/tocbot/tocbot.min.js}"></script>
+</th:block>
+</body>
+</html>

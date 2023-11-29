@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <title th:replace="${title}">博客正文</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+<!--    <link rel="stylesheet" href="style.css" th:href="@{/static/css/style.css}">-->
+<!--    <script src="script.js" th:src="@{/static/js/script.js}" defer></script>-->
+    <link rel="stylesheet" href="./static/css/me.css" th:href="@{/static/css/me.css}">
+    <link rel="stylesheet" href="./static/css/typo.css" th:href="@{/static/css/typo.css}">
+    <link rel="stylesheet" href="./static/lib/tocbot/tocbot.css" th:href="@{/static/lib/tocbot/tocbot.css}">
+
+</head>
+<body>
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted  segment m-padded-tb-mini" style="background-color:rgba(30,30,30,0.7);">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu " >
+            <!--    博客名     -->
+            <p class="ui teal header  nav-header-item m-font-family ">xiongerBlog</p>
+            <a href="#" th:href="@{/index}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==1}?'active'"><i class="home icon"></i>首页</a>
+            <a href="#" th:href="@{/types}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==2}?'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==3}?'active'"><i class="idea icon"></i>标签</a>
+            <a href="#" th:href="@{/about}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==4}?'active'"><i class="info icon"></i>关于我</a>
+            <a href="#" th:href="@{/admin}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==5}?'active'"><i class="user circle icon"></i>登录</a>
+
+            <!--    搜索框        -->
+            <div class=" m-item right item  m-model-hide m-bottom-search">
+                <div class="ui icon input m-bottom-search">
+                    <input class="prompt" type="text" placeholder="Search……">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+        </div>
+        <a href="#" class="ui  menu toggle black icon button m-right-top m-model-show ">
+            <i class="  sidebar icon"></i>
+        </a>
+
+    </div>
+</nav>
+<!--footer-->
+<footer th:fragment="footer" class="ui vertical  inverted  segment m-padded-tb-small footer">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing">Copyright ©2022 - 2022 熊二Blog</div>
+        <div>
+            <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+            <span>冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+<!--js-->
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/static/lib/tocbot/tocbot.min.js}"></script>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!--设置移动端的预览-->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 导入semantic ui在线资源-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
+<!--  <script src="script.js" defer></script>-->
+  <link rel="stylesheet" href="/static/css/me.css" >
+  <link rel="stylesheet" href="/static/css/typo.css" >
+  <link rel="stylesheet" href="/static/lib/tocbot/tocbot.css" >
+  <script type="text/javascript">
+  </script>
+  <script src="script.js" defer></script>
+  <title>Document</title>
+  <style>
+    .component{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index:1;
+    }
+    canvas{
+      /*position: absolute;*/
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+<div>
+
+  <div class="component">
+    <nav  class="ui inverted  segment m-padded-tb-mini"  style="height: 30px; background-color:white">
+      <div class="ui container">
+        <div class="ui inverted  secondary stackable menu " >
+          <!--    博客名     -->
+          <a class="ui  header  nav-header-item  ">博客</a>
+          <a href="#" class=" m-item   m-model-hide" style="color: black;margin-left: 1.5em;margin-right: 1.5em;margin-top: 0.2em">首页</a>
+          <a href="#" class=" m-item   m-model-hide" style="color: black;margin-left: 1.5em;margin-right: 1.5em;margin-top: 0.2em">分类</a>
+          <a href="#" class=" m-item   m-model-hide" style="color: black;margin-left: 1.5em;margin-right: 1.5em;margin-top: 0.2em">标签</a>
+          <a href="#" class=" m-item   m-model-hide" style="color: black;margin-left: 1.5em;margin-right: 1.5em;margin-top: 0.2em">关于我</a>
+          <a href="#" class=" m-item   m-model-hide" style="color: black;margin-left: 1.5em;margin-right: 1.5em;margin-top: 0.2em">登录</a>
+
+          <!--    搜索框        -->
+          <div class="ui mini action icon input" style="height: 25px;margin-left: 45em">
+              <input type="text" placeholder="搜索博客...">
+            <button class="ui icon button">
+              <i class="search icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--中间内容-->
+    <div class="m-padded-tb-massive">
+      <div class="ui container">
+        <div class="ui stackable grid ">
+          <div class="eleven wide column">
+            <div style="" >
+              <!--头部-->
+              <div class="ui top attached segment" style="height: 30px">
+                <div class="ui grid">
+                  <h3 style="padding-top: 0.1em">推荐阅读</h3>
+                </div>
+              </div>
+              <!--content-->
+
+              <div class="ui  padded segment  m-padded-tb-big" style="background-color: white">
+                <div class="ui mobile reversed stackable grid ">
+                  <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size  m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large">MySQL为什么采用B+树，而不是二叉平衡树，二分查找树，和B树</p>
+
+                    <div class="ui grid" >
+                      <div class="eleven wide column"  >
+                        <div class="ui horizontal mini link list" >
+                          <div class="item" >
+                            <img src="/static/images/xionger.png" alt="" class="ui avatar image">
+                            <div class="content"><a href="#" class="header">熊二</a> </div>
+                          </div>
+                          <div class="  item">
+                            <i class="calendar icon"></i> 2022-10-23
+                          </div>
+                          <div class=" item">
+                            <i class="eye icon"></i> 666
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right aligned five wide mini column ">
+                        <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="five wide column">
+                    <img class="ui medium rounded image" src="/static/images/跑步2.jpg">
+                  </div>
+
+                </div>
+              </div>
+              <div class="ui  padded segment m-padded-tb-big" style="background-color: white">
+                <div class="ui mobile reversed stackable grid ">
+                  <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size  m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large">MySQL为什么采用B+树，而不是二叉平衡树，二分查找树，和B树</p>
+
+                    <div class="ui grid" >
+                      <div class="eleven wide column"  >
+                        <div class="ui horizontal mini link list" >
+                          <div class="item" >
+                            <img src="/static/images/xionger.png" alt="" class="ui avatar image">
+                            <div class="content"><a href="#" class="header">熊二</a> </div>
+                          </div>
+                          <div class="  item">
+                            <i class="calendar icon"></i> 2022-10-23
+                          </div>
+                          <div class=" item">
+                            <i class="eye icon"></i> 666
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right aligned five wide mini column ">
+                        <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="five wide column">
+                    <img class="ui medium rounded image" src="/static/images/跑步2.jpg">
+                  </div>
+
+                </div>
+              </div>
+              <div class="ui  padded segment m-padded-tb-big" style="background-color: white">
+                <div class="ui mobile reversed stackable grid ">
+                  <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size  m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large">MySQL为什么采用B+树，而不是二叉平衡树，二分查找树，和B树</p>
+
+                    <div class="ui grid" >
+                      <div class="eleven wide column"  >
+                        <div class="ui horizontal mini link list" >
+                          <div class="item" >
+                            <img src="/static/images/xionger.png" alt="" class="ui avatar image">
+                            <div class="content"><a href="#" class="header">熊二</a> </div>
+                          </div>
+                          <div class="  item">
+                            <i class="calendar icon"></i> 2022-10-23
+                          </div>
+                          <div class=" item">
+                            <i class="eye icon"></i> 666
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right aligned five wide mini column ">
+                        <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="five wide column">
+                    <img class="ui medium rounded image" src="/static/images/跑步2.jpg">
+                  </div>
+
+                </div>
+              </div >
+              <div class="ui  padded segment m-padded-tb-big">
+                <div class="ui mobile reversed stackable grid ">
+                  <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size  m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large">MySQL为什么采用B+树，而不是二叉平衡树，二分查找树，和B树</p>
+
+                    <div class="ui grid" >
+                      <div class="eleven wide column"  >
+                        <div class="ui horizontal mini link list" >
+                          <div class="item" >
+                            <img src="/static/images/xionger.png" alt="" class="ui avatar image">
+                            <div class="content"><a href="#" class="header">熊二</a> </div>
+                          </div>
+                          <div class="  item">
+                            <i class="calendar icon"></i> 2022-10-23
+                          </div>
+                          <div class=" item">
+                            <i class="eye icon"></i> 666
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right aligned five wide mini column ">
+                        <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="five wide column">
+                    <img class="ui medium rounded image" src="/static/images/跑步2.jpg">
+                  </div>
+
+                </div>
+              </div>
+              <div class="ui  padded segment m-padded-tb-big">
+                <div class="ui mobile reversed stackable grid ">
+                  <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size  m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large">MySQL为什么采用B+树，而不是二叉平衡树，二分查找树，和B树</p>
+
+                    <div class="ui grid" >
+                      <div class="eleven wide column"  >
+                        <div class="ui horizontal mini link list" >
+                          <div class="item" >
+                            <img src="/static/images/xionger.png" alt="" class="ui avatar image">
+                            <div class="content"><a href="#" class="header">熊二</a> </div>
+                          </div>
+                          <div class="  item">
+                            <i class="calendar icon"></i> 2022-10-23
+                          </div>
+                          <div class=" item">
+                            <i class="eye icon"></i> 666
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right aligned five wide mini column ">
+                        <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="five wide column">
+                    <img class="ui medium rounded image" src="/static/images/跑步2.jpg">
+                  </div>
+
+                </div>
+              </div>
+              <!--     底部           -->
+              <div class="ui pagination menu" style="width: 100%">
+                <a href="#" class="item left aligned">上一页</a>
+                <a href="#" class="item right aligned">下一页</a>
+              </div>
+            </div>
+          </div>
+          <div class="five wide column">
+            <div class="ui segments">
+              <div class="ui secondary  segment">
+                <div class="ui  column grid">
+                  <div class="column">
+                    <i class="idea icon"></i>分类推荐
+                  </div>
+                </div>
+              </div>
+              <div class="ui teal segment">
+                <div class="ui fluid vertical menu">
+                  <a href="#" class="item">
+                    数据结构
+                    <div class="ui  aligned teal basic left pointing label ">13</div>
+                  </a>
+                </div>
+                <div class="ui fluid vertical menu">
+                  <a href="#" class="item">
+                    Java
+                    <div class="ui  aligned teal basic left pointing label ">13</div>
+                  </a>
+                </div>
+                <div class="ui fluid vertical menu">
+                  <a href="#" class="item">
+                    计算机网络
+                    <div class="ui  aligned teal basic left pointing label ">13</div>
+                  </a>
+                </div>
+                <div class="ui fluid vertical menu">
+                  <a href="#" class="item">
+                    Redis
+                    <div class="ui  aligned teal basic left pointing label ">13</div>
+                  </a>
+                </div>
+                <div class="ui fluid vertical menu">
+                  <a href="#" class="item">
+                    Mybatis-plus
+                    <div class="ui  aligned teal basic left pointing label ">13</div>
+                  </a>
+                </div>
+                <div class="ui fluid vertical menu">
+                  <a href="#" class="item">
+                    Spring
+                    <div class="ui  aligned teal basic left pointing label ">13</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="ui segments">
+              <div class="ui secondary  segment">
+                <div class="ui  column grid">
+                  <div class="column">
+                    <i class="idea icon"></i>标签推荐
+                  </div>
+                </div>
+              </div>
+              <div class="ui teal segment">
+                <a class="ui  aligned m-margin-tb-tiny teal basic left pointing label  ">
+                  Redis<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny ">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+                <a class="ui  aligned teal basic left pointing label m-margin-tb-tiny">
+                  方法论<div class="detail">13</div>
+                </a>
+
+              </div>
+            </div>
+            <h4 class="ui horizontal divider header" style="color: white">我</h4>
+            <div class="ui centered card" style="width: 12em;background-color: whitesmoke" >
+              <img src="/static/images/WeChat2.jpg"   class="ui rounded image" alt="" >
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <footer th:replace="_fragments::footer" class="ui vertical  inverted  segment m-padded-tb-small footer" style="background-color: white;height: 5em!important;">
+      <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing" style="color: black">Copyright ©2022 - 2022Blog</div>
+        <div>
+          <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+          <span style="color: black">冀ICP备20221103号-666</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <canvas id="canvas"></canvas>
+</div>
+</body>
+
+</html>

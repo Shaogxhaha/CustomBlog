@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <title>500</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <script src="../static/layui/layui.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<nav th:replace="_fragments2::menu(1)" class="ui inverted  segment m-padded-tb-mini" style="background-color:rgba(30,30,30,0.7);">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu " >
+            <!--    博客名     -->
+            <p class="ui teal header  nav-header-item m-font-family ">熊二Blog</p>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="home icon"></i>首页</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="idea icon"></i>分类</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="user circle icon"></i>登录</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="info icon"></i>关于我</a>
+            <!--    搜索框        -->
+            <div class=" m-item right item  m-model-hide m-bottom-search">
+                <div class="ui icon input m-bottom-search">
+                    <input class="prompt" type="text" placeholder="Search……">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+        </div>
+        <a href="#" class="ui  menu toggle black icon button m-right-top m-model-show ">
+            <i class="  sidebar icon"></i>
+        </a>
+
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="ui segment">
+    <div class="ui error message">
+        <div class="ui container">
+            <h2>500</h2>
+            <p>对不起，请求出错了</p>
+        </div>
+
+    </div>
+</div>
+
+<br>
+<footer th:replace="_fragments2::footer" class="ui vertical  inverted  segment m-padded-tb-small footer">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing">Copyright ©2022 - 2022 熊二Blog</div>
+        <div>
+            <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+            <span>冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

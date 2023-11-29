@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <title th:replace="${title}">博客正文</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/static/css/me.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/static/css/typo.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/static/lib/tocbot/tocbot.css}">
+
+    <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css" th:href="@{/static/lib/editormd/css/editormd.css}">
+    <style>
+        footer {
+            position: fixed!important;
+            bottom: 0!important; /* 4. 设置页脚position为absolute之后，再将其bottom值设为0，即可使其处于页面的底部 */
+            width: 100% !important;
+            background-color: #457B9D;
+        }
+        html,body{
+            height: 100%!important;
+            width: 100% !important;
+            margin: 0!important;
+        }
+    </style>
+</head>
+
+<body>
+<!--导航-->
+<!--导航-->吧
+<nav th:fragment="menu(n)"  class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu ">
+            <!--    博客名     -->
+            <p class="ui teal header  nav-header-item m-font-family ">管理后台</p>
+            <a href="#" th:href="@{/admin/index}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==1}?'active'"><i class="home icon"></i>首页</a>
+            <a href="#" th:href="@{/admin/blogs}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==2}?'active'"><i class="home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==3}?'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==4}?'active'"><i class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/index}" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==5}?'active'"><i class="tv icon"></i>前台</a>
+<!--            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom" th:classappend="${n==3}?'active'"><i class="idea icon"></i>分类</a>-->
+            <div class="right m-item  m-model-hide menu ">
+                <div class="ui dropdown item margin-header">
+                    <div class="text">
+                        <img class="ui avatar image" src="/static/images/xionger.png" th:href="@{${session.user.avatar}}" alt="" >
+                        <span th:text="${session.user.nickname}"></span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <a href="#" class="ui  menu toggle black icon button m-right-top m-model-show ">
+            <i class="sidebar icon"></i>
+        </a>
+
+    </div>
+</nav>
+
+<nav th:fragment="menu2(n)" class="ui attached pointing  menu">
+    <div class="ui container">
+        <div class="right  menu">
+            <a href="#" class="item" th:classappend="${n==1}?'teal active'">发布</a>
+            <a href="#" class="item" th:classappend="${n==2}?'teal active'">列表</a>
+        </div>
+    </div>
+</nav>
+<!--footer-->
+<footer th:fragment="footer" class="ui vertical  inverted  segment m-padded-tb-small footer">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing">Copyright ©2022 - 2022 熊二Blog</div>
+        <div>
+            <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+            <span>冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+<!--js-->
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <script src="../static/lib/editormd/editormd.min.js" th:href="@{/static/lib/editormd/editormd.min.js}"></script>
+    <script>
+        <!--    初始化markdown编辑器-->
+        var contentEditor;
+
+        $(function() {
+            contentEditor = editormd("md-content", {
+                width   : "100%",
+                height  : 640,
+                syncScrolling : "single",
+                path    : "../static/lib/editormd/lib/"
+            });
+
+            /*
+            // or
+            testEditor = editormd({
+                id      : "test-editormd",
+                width   : "90%",
+                height  : 640,
+                path    : "../lib/"
+            });
+            */
+        });
+        $('.menu.toggle').click(function(){
+            $('.m-item').toggleClass('m-model-hide');
+        });
+        $('.ui.dropdown').dropdown();
+        $('.ui.form').form({
+            fields:{
+                title:{
+                    identifier:'title',
+                    rules:[{
+                        type:'empty',
+                        prompt:'标题:请输入博客标题'
+                    }]
+                }
+            },username: {
+                identifier : 'username',
+                rules: [
+                    {
+                        type   : 'empty',
+                        prompt:'请输入账号'
+                    }
+                ]
+            },
+            password:{
+                identifier : 'password',
+                rules: [
+                    {
+                        type   : 'empty',
+                        prompt:'请输入密码'
+                    }
+                ]
+            }
+
+        });
+
+
+    </script>
+</th:block>
+</body>
+</html>

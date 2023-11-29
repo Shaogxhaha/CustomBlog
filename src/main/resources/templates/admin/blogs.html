@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:margin-top="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <title>管理后台</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <script src="../static/layui/layui.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body class="background">
+
+<!--导航-->
+<nav th:replace="admin/_fragments::menu(2)"  class="ui inverted  segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu ">
+            <!--    博客名     -->
+            <p class="ui teal header  nav-header-item m-font-family ">管理后台</p>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="home icon"></i>首页</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="idea icon"></i>分类</a>
+            <div class="right m-item  m-model-hide menu ">
+                <div class="ui dropdown item margin-header">
+                    <div class="text">
+                        <img src="../static/images/xionger.png" alt="" class="ui avatar image"> 熊二
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <a href="#" class="ui  menu toggle black icon button m-right-top m-model-show ">
+        <i class="sidebar icon"></i>
+    </a>
+
+    </div>
+</nav>
+<div  class="ui attached  pointing  menu">
+    <div class="ui container">
+        <div class="right  menu">
+            <a href="#" class="item" th:href="@{/admin/blogs/input}" >新增</a>
+            <a href="#" class=" teal active item" th:href="@{/admin/blogs}">列表</a>
+        </div>
+    </div>
+</div>
+<!--中间内容-->
+<div class="m-padded-tb-massive">
+    <div class="ui container" style="width:970px">
+        <div th:if="${message!=null}">
+            <div class="ui  message">
+                <i class="close icon"></i>
+                <div class="head">提示：</div>
+                <p th:text="${message}">操作成功!</p>
+            </div>
+        </div>
+        <div  class="ui segment form">
+                <input type="hidden" name="page">
+                <div class="inline fields">
+                    <div class="field">
+                        <input type="text" name="title" placeholder="标题">
+                    </div>
+                    <div class="field">
+                            <div class="ui selection dropdown">
+                                <input type="hidden" name="typeId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">分类</div>
+                                <div class="menu">
+                                    <div th:each="type:${types}" class="item" th:data-value="${type.id}" th:text="${type.name}"></div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" id="recommend" name="recommend">
+                            <label for="recommend">推荐 </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <a th:href="@{/admin/blogs}" class="ui  teal  basic button right floated">展示所有</a>
+                    </div>
+                    <div class="field">
+                        <button type="button" id="search-btn" class="ui  teal  basic button right floated"><i class="search icon"></i>搜索</button>
+                    </div>
+                </div>
+            </div>
+        <div id="table-container">
+            <table th:fragment="blogList" class="ui table">
+                <thead>
+                <tr>
+                    <th class="two wide"></th>
+                    <th class="two wide">标题</th>
+                    <th class="two wide">类型</th>
+                    <th class="two wide">状态</th>
+                    <th class="two wide">推荐</th>
+                    <th class="two wide">更新时间</th>
+                    <th class="four wide">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="blog:${page.getRecords()}">
+                    <td class="center aligned" th:text="${(((page.current)-1)*5)+(blogStat.index+1)}">1</td>
+                    <td th:text="${blog.title}">Java</td>
+                    <td th:text="${blog.type.name}">Redis</td>
+                    <td th:text="${blog.published}?'发布':'草稿'">是</td>
+                    <td th:text="${blog.recommend}?'是':'否'">是</td>
+                    <td th:text="${blog.updateTime}">2022-10-27</td>
+                    <td>
+                    <a href="#" th:href="@{/admin/blogs/edit/{id}(id=${blog.id})}" methods="get" class="ui teal basic button">编辑</a>
+                    <a href="#" th:href="@{/admin/blogs/delete/{id}(id=${blog.id})}" class="ui teal basic button">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="9">
+                        <!--分页-->
+                        <div class="ui pagination menu" th:if="${page.pages>0}">
+                            <!--当前页为第一页时，不可点击-->
+                            <a class="item" th:if="${page.current==1}" onclick="return false;">上一页</a>
+                            <a href="#" onclick="page(this)" th:attr="data-page=${page.current}-1" th:unless="${page.current==1}" th:href="@{/admin/blogs(current=${page.current}-1)}" class="item">上一页</a>
+                            <!--当前页为最后一页时，不可点击-->
+                            <a class="item" th:if="${page.current==page.pages}" onclick="return false;">下一页</a>
+                            <a href="#" onclick="page(this)" th:attr="data-page=${page.current}+1" th:unless="${page.current==page.pages}"  th:href="@{/admin/blogs(current=${page.current}+1)}"  class="item">下一页</a>
+                        </div>
+                        <a href="" th:href="@{/admin/blogs/input}" methods="post" class="ui  right floated  basic button">新增</a>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="admin/_fragments::footer" class="ui vertical  inverted  segment m-padded-tb-small footer">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing">Copyright ©2022 - 2022 熊二Blog</div>
+        <div>
+            <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+            <span>冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+<script>
+    $('.menu.toggle').click(function(){
+        $('.m-item').toggleClass('m-model-hide');
+    });
+    $('.ui.dropdown').dropdown();
+    function page(obj){
+        $("[name='page']").val($(obj).date("page"));
+    }
+    function loaddata(){
+        $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
+            title:$("[name='title']").val(),
+            typeId :$("[name='typeId']").val(),
+            recommend:$("[name='recommend']").prop('checked'),
+            page:$("[name='page']").val()
+        })
+    }
+    $("#search-btn").click(function(){
+        loaddata();
+    })
+    $('.message .close').on('click',function () {
+        $(this)
+            .closest('.message')
+            .transition('fade');
+    });
+    $('.ui.selection.dropdown')
+        .dropdown({
+            clearable: true
+        });
+</script>
+</body>
+
+</html>

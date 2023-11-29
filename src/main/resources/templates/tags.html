@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="_fragments2 :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!--设置移动端的预览-->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 导入semantic ui在线资源-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/static/css/me.css" >
+  <link rel="stylesheet" href="/static/css/typo.css" >
+  <link rel="stylesheet" href="/static/lib/tocbot/tocbot.css" >
+  <script src="script.js" defer></script>
+  <title>标签</title>
+  <style>
+    .component{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index:1;
+    }
+    canvas{
+      /*position: absolute;*/
+      position: fixed;
+    }
+  </style>
+</head>
+<body class="blogBackground">
+<div>
+  <div >
+    <!--top-->
+    <nav th:replace="_fragments2::menu(3)" class="ui inverted  segment m-padded-tb-mini"  style="height: 30px; background-color:white">
+      <div class="ui container">
+        <div class="ui inverted  secondary stackable menu " >
+          <!--    博客名     -->
+          <a class="ui  header  nav-header-item  ">博客</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt" >首页</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt" >分类</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt">标签</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt">关于我</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt">登录</a>
+          <!--    搜索框        -->
+          <div class="ui mini action icon input" style="height: 25px;margin-left: 45em">
+              <input type="text" placeholder="搜索博客...">
+            <button class="ui icon button">
+              <i class="search icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--中间内容-->
+    <div class="m-padded-tb-massive">
+      <div class="ui container" style="width:850px">
+        <!--头部-->
+        <div class="ui top attached   segment" style="height: 50px">
+          <div class="ui middle aligned two column grid">
+            <div class="column ">
+              <h3 class="ui  header ">标签</h3>
+            </div>
+          </div>
+        </div>
+        <!--      标签-->
+        <div class="ui attached  segment" style="margin-bottom: 14px!important;">
+          <div class="ui labeled button m-margin-tiny" th:each="tags:${tags}">
+            <input type="hidden" name="id" th:value="${tags.id}">
+            <a th:href="@{/tags/{id}/{current}(id=${tags.id},current=1)}" href="#" class="ui basic  button" th:classappend="${tags.id==activeTypeId}?'teal'" th:text="${tags.name}">Java</a>
+            <div class="ui basic  left pointing label" th:classappend="${tags.id==activeTypeId}?'teal'" th:text="${tags.blogCount}">24</div>
+          </div>
+        </div>
+        <!--        博客列表-->
+        <div class="ui segment"  th:each="blog:${page.getRecords()}" style="margin-top: 1px!important;">
+          <div  th:if="${blog}!=null" class="ui  padded vertical segment  m-padded-tb-big" style="padding-top: 0em!important;padding-bottom: 0.3em!important;" >
+            <div class="ui middle aligned mobile reversed stackable grid">
+              <div class="eleven wide column">
+                <!--文章标题-->
+                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="ui header m-text-thin  m-p-size  m-p-letter-spacing" th:text="${blog.title}">你真的懂得什么叫做速度吗?</a>
+                <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large" th:text="${blog.description}">MySQL为什么采用B+树，而不是二叉平衡树，二分查找树，和B树</p>
+
+                <div class="ui grid" >
+                  <div class="eleven wide column"  >
+                    <div class="ui horizontal mini link list" >
+                      <div class="item" >
+                        <img src="/static/images/xionger.png" th:src="@{/static/images/xionger.png}" alt="" class="ui avatar image">
+                        <div class="content"><a href="#" th:href="@{/about}" class="header" th:text="${blog.user.nickname}">熊二</a> </div>
+                      </div>
+                      <div class="  item">
+                        <i class="calendar icon"></i> <span th:text="${blog.updateTime}">2022-10-23</span>
+                      </div>
+                      <div class=" item">
+                        <i class="eye icon"></i> <span th:text="${blog.views}">666</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right aligned five wide mini column ">
+                    <a target="_blank" class="ui  basic label  m-text-thin m-padded-tiny" th:text="${blog.type.name}">认知升级</a>
+                  </div>
+                </div>
+              </div>
+              <div class="five wide column">
+                <a th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                  <img class="ui medium rounded image" src="/static/images/跑步2.jpg" th:src="@{${blog.firstPicture}}" style="height: 150px">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--换页-->
+        <div class="ui pagination menu" style="width: 100%" th:if="${page.pages}>2">
+          <a href="#" th:unless="${page.current==1}" th:href="@{/tags/{id}/{current}(id=${activeTypeId},current=${page.current}-1)}" class="item left aligned">上一页</a>
+          <a href="#" th:unless="${page.current==page.pages}" th:href="@{/tags/{id}/{current}(id=${activeTypeId},current=${page.current}+1)}" class="item right aligned">下一页</a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <!--页底-->
+    <footer th:replace="_fragments2::footer" class="ui vertical  inverted  segment m-padded-tb-small footer" style="background-color: white;height: 5em!important;">
+      <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing" style="color: black">Copyright ©2022 - 2022Blog</div>
+        <div>
+          <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+          <span style="color: black">冀ICP备20221103号-666</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+<!--  <canvas id="canvas"></canvas>-->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+<script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/static/lib/tocbot/tocbot.min.js}"></script>
+</body>
+
+</html>

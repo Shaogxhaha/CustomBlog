@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:margin-top="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <title>关于我</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../a/css/me.css">
+    <link rel="stylesheet" href="../a/layui/css/layui.css">
+    <script src="../a/layui/layui.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body class="background">
+
+<!--导航-->
+<nav th:replace="_fragments::menu(4)" class="ui inverted  segment m-padded-tb-mini" style="background-color:rgba(30,30,30,0.7);">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu ">
+            <!--    博客名     -->
+            <p class="ui teal header  nav-header-item m-font-family ">熊二Blog</p>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="home icon"></i>首页</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="idea icon"></i>分类</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="user circle icon"></i>登录</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="info icon"></i>关于我</a>
+
+            <!--    搜索框        -->
+            <div class=" m-item right item  m-model-hide m-bottom-search">
+
+<!--                <div class="ui category search">-->
+                    <div class="ui icon input m-bottom-search">
+                        <input class="prompt" type="text" placeholder="Search……">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+<!--                </div>-->
+            </div>
+        </div>
+    <a href="#" class="ui  menu toggle black icon button m-right-top m-model-show ">
+        <i class="  sidebar icon"></i>
+    </a>
+
+    </div>
+</nav>
+<!--中间内容-->
+<div class=" m-container-small m-padded-tb-massive">
+    <div class="ui container">
+
+        <!--  头部-->
+        <div class="ui top attached  h-background-color segment" style="height: 50px">
+            <div class="ui middle aligned two column grid">
+                <div class="column ">
+                    <h3 class="ui teal  header ">关于我</h3>
+                </div>
+                <div class="right aligned  column">
+                    共<h2 class="ui orange header m-inline-block"></h2>
+                </div>
+            </div>
+        </div>
+
+<!--        自我介绍 -->
+        <div class="ui  padded segment m-padded-tb-big">
+            <div class="ui mobile  stackable grid">
+                <div class=" seven wide column">
+                    <img class="ui medium circular rounded image" src="../a/images/xionger.png" th:src="@{/static/images/xionger.png}">
+                </div>
+                <div class=" nine wide column">
+                    <div class="ui link list">
+                        <div class="about-text item">
+                            一名倔强，不知名的小菜鸟
+                        </div>
+
+                        <div class="about-text item">
+                            虽读的书很少，但尊重爱书之人。
+                        </div>
+                        <div class="about-text item">
+                            今虽腹中少墨，也望他日可教书育人。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--底部footer-->
+<footer th:replace="_fragments::footer"class="ui vertical  inverted  segment m-padded-tb-small footer">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing">Copyright ©2022 - 2022 熊二Blog</div>
+        <div>
+            <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+            <span>冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+<th:block th:replace="_fragments::script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+    <script src="../a/lib/tocbot/tocbot.min.js"></script>
+</th:block>
+<script>
+    $('.menu.toggle').click(function(){
+        $('.m-item').toggleClass('m-model-hide');
+    });
+</script>
+</body>
+
+</html>

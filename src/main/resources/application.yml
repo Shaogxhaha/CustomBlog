@@ -1,0 +1,43 @@
+spring:
+  thymeleaf:
+    mode: HTML
+#    encoding: utf-8
+#    cache: false
+#    servlet:
+#      content-type: text/html
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/blog?serverTimezone=UTC
+      username: root
+      password: root
+
+
+#  configuration:
+##    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  jpa:
+##    open-in-view: false
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+
+
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enable: true
+    static-path-pattern: /static/**
+server:
+  port: 80
+
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+
+
+

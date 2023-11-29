@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:margin-top="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <script src="../static/layui/layui.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body class="background">
+
+<!--导航-->
+<nav th:replace="admin/_fragments::menu(1)" class="ui inverted  segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu ">
+            <!--    博客名     -->
+            <p class="ui teal header  nav-header-item m-font-family ">管理后台</p>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"> <i class="home icon"></i>首页</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="idea icon"></i>分类</a>
+            <div class="right m-item  m-model-hide menu ">
+                <div class="ui dropdown item margin-header">
+                    <div class="text">
+                        <img src="../static/images/xionger.png" alt="" class="ui avatar image"> 熊二
+
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">注销</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <a href="#" class="ui  menu toggle black icon button m-right-top m-model-show ">
+            <i class="sidebar icon"></i>
+        </a>
+
+    </div>
+</nav>
+<!--中间内容-->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="m-padded-tb-massive">
+    <div class="ui container" style="width:970px">
+        <div class="ui segment">
+            <div class="ui grid">
+                <img class="ui  left floated image" th:src="@{/static/images/xionger.png}" src="/images/wireframe/square-image.png">
+                <p><h1>欢迎回来!</h1></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="admin/_fragments::footer" class="ui vertical  inverted  segment m-padded-tb-small footer">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing">Copyright ©2022 - 2022 熊二Blog</div>
+        <div>
+            <img src="/static/images/img.png" style="vertical-align: sub;width: 18px">
+            <span>冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+
+
+
+<script>
+
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-model-hide');
+    });
+
+    $('.ui.dropdown').dropdown();
+
+
+</script>
+</body>
+
+</html>

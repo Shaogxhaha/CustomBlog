@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:margin-top="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <title>分类</title>
+    <!--设置移动端的预览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 导入semantic ui在线资源-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../a/css/me.css">
+    <link rel="stylesheet" href="../a/layui/css/layui.css">
+    <script src="../a/layui/layui.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body class="background">
+
+<!--导航-->
+<nav th:replace="_fragments::menu(2)" class="ui inverted  segment m-padded-tb-mini" style="background-color:rgba(30,30,30,0.7);">
+    <div class="ui container">
+        <div class="ui inverted  secondary stackable menu ">
+            <!--    博客名     -->
+            <p class="ui teal header  nav-header-item m-font-family ">熊二Blog</p>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="home icon"></i>首页</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="idea icon"></i>分类</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="user circle icon"></i>登录</a>
+            <a href="#" class=" m-item item m-nav-text-size m-model-hide m-bottom"><i class="info icon"></i>关于我</a>
+            <!--    搜索框        -->
+            <div class=" m-item right item  m-model-hide m-bottom-search">
+                    <div class="ui icon input m-bottom-search">
+                        <input class="prompt" type="text" placeholder="Search……">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+            </div>
+        </div>
+    <a href="#" class="ui  menu toggle black icon button m-right-top m-model-show ">
+        <i class="sidebar icon"></i>
+    </a>
+
+    </div>
+</nav>
+<!--中间内容-->
+<div class="m-padded-tb-massive">
+    <div class="ui container" style="width:970px">
+        <!--头部-->
+        <div class="ui top attached  h-background-color segment" style="height: 50px">
+            <div class="ui middle aligned two column grid">
+                <div class="column ">
+                    <h3 class="ui teal  header ">分类</h3>
+                </div>
+                <div class="right aligned  column">
+                    共<h2 class="ui orange header m-inline-block">14</h2>
+                </div>
+            </div>
+        </div>
+<!--        分类标签-->
+        <div class="ui attached  segment">
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic teal button    ">Java</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic  button">思想道德与品质</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic teal button    ">Java</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic  button">思想道德与品质</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic teal button    ">Java</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic  button">思想道德与品质</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic teal button    ">Java</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+            <div class="ui labeled button m-margin-tiny">
+                <a href="#" class="ui basic  button">思想道德与品质</a>
+                <div class="ui basic teal left pointing label">24</div>
+            </div>
+
+        </div>
+<!--        博客列表-->
+        <div class="ui  padded  segment m-padded-tb-big">
+            <div class="ui mobile reversed stackable grid ">
+                <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size m-text-height m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large" s >他的出现让博尔特沉默</p>
+
+                    <div class="ui grid" >
+                        <div class="eleven wide column"  >
+                            <div class="ui horizontal mini link list" >
+                                <div class="item" >
+                                    <img src="../a/images/xionger.png" alt="" class="ui avatar image">
+                                    <div class="content"><a href="#" class="header">熊二</a> </div>
+                                </div>
+                                <div class="  item">
+                                    <i class="calendar icon"></i> 2022-10-23
+                                </div>
+                                <div class=" item">
+                                    <i class="eye icon"></i> 666
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right aligned five wide mini column ">
+                            <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="five wide column">
+                    <img class="ui medium rounded image" src="../a/images/跑步2.jpg">
+                </div>
+
+            </div>
+        </div>
+        <div class="ui  padded  segment m-padded-tb-big">
+            <div class="ui mobile reversed stackable grid ">
+                <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size m-text-height m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large" s >他的出现让博尔特沉默</p>
+
+                    <div class="ui grid" >
+                        <div class="eleven wide column"  >
+                            <div class="ui horizontal mini link list" >
+                                <div class="item" >
+                                    <img src="../a/images/xionger.png" alt="" class="ui avatar image">
+                                    <div class="content"><a href="#" class="header">熊二</a> </div>
+                                </div>
+                                <div class="  item">
+                                    <i class="calendar icon"></i> 2022-10-23
+                                </div>
+                                <div class=" item">
+                                    <i class="eye icon"></i> 666
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right aligned five wide mini column ">
+                            <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="five wide column">
+                    <img class="ui medium rounded image" src="../a/images/跑步2.jpg">
+                </div>
+
+            </div>
+        </div>
+        <div class="ui  padded  segment m-padded-tb-big">
+            <div class="ui mobile reversed stackable grid ">
+                <div class="eleven wide column">
+                    <!--文章标题-->
+                    <a href="#" class="ui header m-text-thin  m-p-size m-text-height m-p-letter-spacing ">你真的懂得什么叫做速度吗?</a>
+                    <p class="m-text-thin  m-text-letter-spacing  m-text-size m-padded-tb-large" s >他的出现让博尔特沉默</p>
+
+                    <div class="ui grid" >
+                        <div class="eleven wide column"  >
+                            <div class="ui horizontal mini link list" >
+                                <div class="item" >
+                                    <img src="../a/images/xionger.png" alt="" class="ui avatar image">
+                                    <div class="content"><a href="#" class="header">熊二</a> </div>
+                                </div>
+                                <div class="  item">
+                                    <i class="calendar icon"></i> 2022-10-23
+                                </div>
+                                <div class=" item">
+                                    <i class="eye icon"></i> 666
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right aligned five wide mini column ">
+                            <a target="_blank" class="ui teal basic label  m-text-thin m-padded-tiny ">认知升级</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="five wide column">
+                    <img class="ui medium rounded image" src="../a/images/跑步2.jpg">
+                </div>
+
+            </div>
+        </div>
+<!--        换页-->
+        <div class="ui bottom attached h-background-color segment">
+            <div class="ui middle aligned two column grid">
+                <!--上一页-->
+                <div class="column">
+                    <a  href="#" class="ui left labeled icon button">
+                        <i class="left arrow icon"></i>
+                        Previous
+                    </a>
+                </div>
+                <!--下一页-->
+                <div class="right aligned column">
+                    <a href="#" class="ui right labeled icon button">
+                        <i class="right arrow icon"></i>
+                        Next
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--底部footer-->
+<footer  th:replace="_fragments::footer" class="ui vertical  inverted  segment m-padded-tb-small footer">
+    <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing">Copyright ©2022 - 2022 熊二Blog</div>
+        <div>
+            <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+            <span>冀ICP备20221103号-666</span>
+        </div>
+    </div>
+</footer>
+
+<th:block th:replace="_fragments::script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+</th:block>
+
+<script>
+    $('.menu.toggle').click(function(){
+        $('.m-item').toggleClass('m-model-hide');
+    });
+</script>
+</body>
+
+</html>

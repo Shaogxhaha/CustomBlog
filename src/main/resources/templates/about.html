@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="_fragments2 :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!--设置移动端的预览-->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 导入semantic ui在线资源-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/static/css/me.css" >
+  <link rel="stylesheet" href="/static/css/typo.css" >
+  <link rel="stylesheet" href="/static/lib/tocbot/tocbot.css" >
+  <script src="script.js" defer></script>
+  <title>关于我</title>
+  <style>
+    .component{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index:1;
+    }
+    canvas{
+      /*position: absolute;*/
+      position: fixed;
+    }
+  </style>
+</head>
+<body class="meBackground">
+<div>
+  <div class=" m-padded-tb-massive" >
+    <!--top-->
+    <nav th:replace="_fragments2::menu(4)" class="ui inverted  segment m-padded-tb-mini"  style="height: 30px; background-color:white">
+      <div class="ui container">
+        <div class="ui inverted  secondary stackable menu " >
+          <!--    博客名     -->
+          <a class="ui  header  nav-header-item  ">博客</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt" >首页</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt" >分类</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt">标签</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt">关于我</a>
+          <a href="#" class=" m-item   m-model-hide m-clrt">登录</a>
+          <!--    搜索框        -->
+          <div class="ui mini action icon input" style="height: 25px;margin-left: 45em">
+              <input type="text" placeholder="搜索博客...">
+            <button class="ui icon button">
+              <i class="search icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="m-top">
+      <div class="ui container">
+        <div class="ui stackable grid">
+          <!--图片-->
+          <div class="nine wide column" style="padding-left: 10em!important;margin-right: 0em!important;">
+            <div class="ui segment" style="background: aliceblue!important; width: 500px!important;">
+                <img src="/static/images/wo.jpg" alt="" class="ui rounded image">
+            </div>
+          </div>
+          <!--介绍-->
+          <div class="six wide column">
+            <div class="ui top header attached segment">
+              关于我
+            </div>
+            <!--介绍-->
+            <div class="ui attached segment">
+              <p>一名倔强，不知名的小菜鸟</p>
+              <p>虽读的书很少，但尊重爱书之人。</p>
+              <p>今虽腹中少墨，也望他日可教书育人。</p>
+            </div>
+            <div class="ui attached segment">
+                <div class="ui orange basic label">Java</div>
+                <div class="ui blue basic label">思考</div>
+                <div class="ui teal basic label">写作</div>
+                <div class="ui brown basic label">篮球</div>
+            </div>
+            <!--联系方式-->
+            <div class="ui bottom attached segment">
+              <a href="" class="ui blue circular icon button" id="qq">
+                <i class="qq icon">
+                </i>
+              </a>
+              <a href="" class="ui email teal circular icon button" data-content="157816609@qq.com" data-position="bottom center">
+                <i class="envelope icon">
+                </i>
+              </a>
+            </div>
+            <div class="ui qq-qr flowing popup transition hidden">
+              <img src="" th:src="@{/static/images/qq.jpg}"  alt="" class="ui rounded image" style="width:100px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer th:replace="_fragments2::footer" class="ui vertical  inverted  segment m-padded-tb-small footer" style="background-color: white;height: 5em!important;">
+      <div class="ui center aligned container">
+        <div class="m-text-thin m-text-letter-spacing" style="color: black">Copyright ©2022 - 2022Blog</div>
+        <div>
+          <img src="/static/images/img.png"style="vertical-align: sub;width: 18px">
+          <span style="color: black">冀ICP备20221103号-666</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+<!--  <canvas id="canvas"></canvas>-->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+  <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/static/lib/tocbot/tocbot.min.js}"></script>
+  <script>
+     $('.email').popup();
+     $('.qq').popup({
+       popup:$('.qq-qr'),
+       position:'bottom center'
+     });
+  </script>
+</div>
+</body>
+
+</html>
